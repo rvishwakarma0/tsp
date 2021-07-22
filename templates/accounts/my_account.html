@@ -1,0 +1,63 @@
+{% extends 'TiffinServicePool/main.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>
+				My Account Details
+			</h3>
+			<table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="table-info">
+                                <th>
+                                    Details
+                                </th>
+                                <th>
+                                    Customer
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-success">
+                                <td>
+                                    Name
+                                </td>
+                                <td>
+                                    {{customer.name}}
+                                </td>
+                            </tr>
+                            <tr class="table-danger">
+                                <td>
+                                    email
+                                </td>
+                                <td>
+                                    {{customer.email}}
+                                </td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td>
+                                    Default Address
+                                </td>
+                                <td>
+                                    {{customer.defaultAddress.address}}
+                                    {{customer.defaultAddress.city}}
+                                    {{customer.defaultAddress.zipcode}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+			<blockquote class="blockquote">
+				<p class="mb-0">
+					Thank you for becoming a part of our family, We will be happy when your tummy will be happy !!
+				</p>
+				<footer class="blockquote-footer">
+					with &#9829; <cite>Tiffin Service Pool (TSP)</cite>
+				</footer>
+			</blockquote>
+			<a class="btn btn-outline-dark" href="{% url 'TiffinServicePool' %}">&#x2190; beat the hunger</a>
+		</div>
+	</div>
+</div>
+{% endblock content %}

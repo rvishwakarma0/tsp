@@ -1,0 +1,35 @@
+{% extends 'TiffinServicePool/main.html' %}
+{% load static %}
+{% block content %}
+
+
+      <div class="jumbotron">
+        <h1 class="display-4">Order Cancellation</h1>
+        <hr class="my-4">
+
+        <div class="container">
+          {% if order.canceled == False %}
+            <div class="alert alert-danger" role="alert">
+              Think again!! triggering cancellation...
+            </div>
+            <form method="post" class="justify-content-center">
+              {%csrf_token%}
+              <h3>DO you really want to cancel order {{order.id}} ?</h3>
+              <button type="submit" class="btn btn-danger" name="choice" value="True">Yes</button>
+              <button type="submit" class="btn btn-danger" name="choice" value="False">No</button>
+            </form>
+          {% else %}
+            <div class="alert alert-danger" role="alert">
+              !! Order already canceled !!
+            </div>
+            <hr>
+            <a class="btn btn-outline-dark" href="{% url 'TiffinServicePool' %}">&#x2190; beat the hunger</a>
+          {%endif%}
+        </div>
+
+      </div>
+
+{% endblock content %}
+
+
+

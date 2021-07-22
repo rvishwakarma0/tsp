@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:8000/my_orders/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Tiffin Service Pool</title>
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./Tiffin Service Pool_files/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./Tiffin Service Pool_files/main.css">
+
+    <script type="text/javascript">
+        var user='testuser@gn8.in'
+            function getToken(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                  }
+                } 
+                return cookieValue;
+            }
+        csrftoken = getToken('csrftoken');
+
+
+        function getCookie(name){
+          var cookieArr = document.cookie.split(";");
+          for(var i=0; i<cookieArr.length; i++){
+            var cookiePair = cookieArr[i].split("=");
+
+            if(name == cookiePair[0].trim()){
+              return decodeURIComponent(cookiePair[1]);
+            }
+          }
+          return null;
+        }
+        var cart = JSON.parse(getCookie('cart'))
+        if(cart == undefined){
+          cart = {}
+          console.log("cart was created",cart)
+          document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/'
+        }
+        console.log('Cart:',cart)
+    </script>
+
+</head>
+  <body data-new-gr-c-s-check-loaded="14.1022.0" data-gr-ext-installed="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="http://127.0.0.1:8000/vendor/dashboard/">TSP</a>
+        <ul class="navbar-nav mr-auto"></ul>
+        
+        <ul class="navbar-nav nav-flex-icons ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="./Tiffin Service Pool_files/avtar.png" class="rounded-circle" style="height: 34px;" alt="avatar image">
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdownMenuLink-55">
+              <a class="dropdown-item" href="http://127.0.0.1:8000/my_account/">My Account</a>
+              <a class="dropdown-item" href="http://127.0.0.1:8000/my_orders/">My Orders</a>
+              <a class="dropdown-item" href="http://127.0.0.1:8000/user_logout/">Logout</a>
+            </div>
+          </li>
+        </ul>
+        
+          <a href="http://127.0.0.1:8000/cart/">
+            <img id="cart-icon" src="./Tiffin Service Pool_files/cart.png">
+          </a>
+        
+        <p id="cart-total">0</p>
+    </nav>
+    <div class="container-fluid">
+        
+        
+        <div class="row">
+                <div class="col-lg-12">
+
+                        <div class="box-element">
+
+                                <a class="btn btn-outline-dark" href="http://127.0.0.1:8000/vendor/dashboard/">← Beat the hunger</a>
+                                <br>
+                                <br>
+                                <table class="table">
+                                        
+                                                <tbody><tr>
+                                                        <th><h5>No. Of Orders: <strong>2</strong></h5></th>
+                                                        <th><h5>Total Amount Spent: <strong>₹390.00</strong></h5></th>
+
+                                                </tr>
+                                        
+                                </tbody></table>
+
+
+                        </div>
+                        
+                        <br>
+
+                        <div class="box-element">
+                        
+                                <div class="cart-row">
+
+                                        <div style="flex:1"><strong>Order Number</strong></div>
+                                        <div style="flex:1"><strong>Transaction ID</strong></div>
+                                        <div style="flex:1"><strong>Amount</strong></div>
+                                        <div style="flex:1"><strong>Quantity</strong></div>
+                                        <div style="flex:1"><strong>Completed</strong></div>
+                                        <div style="flex:1"><strong>Delivered</strong></div>
+                                        <div style="flex:1"><strong>Cancelled</strong></div>
+                                        <div style="flex:1"><strong>Details</strong></div>
+                                </div>
+                                
+                                <div class="cart-row">
+
+                                        <div style="flex:1">4</div>
+                                        <div style="flex:1">1626908599</div>
+                                        <div style="flex:1">₹195.00</div>
+                                        <div style="flex:1">1</div>
+                                        <div style="flex:1">True</div>
+                                        <div style="flex:1">False</div>
+                                        <div style="flex:1">False</div>
+                                        <div style="flex:1"><a href="http://127.0.0.1:8000/my_orders/4/" class="btn btn-success">check details</a></div>
+                                </div>
+                                
+                                <div class="cart-row">
+
+                                        <div style="flex:1">5</div>
+                                        <div style="flex:1">1626908669</div>
+                                        <div style="flex:1">₹195.00</div>
+                                        <div style="flex:1">1</div>
+                                        <div style="flex:1">True</div>
+                                        <div style="flex:1">False</div>
+                                        <div style="flex:1">False</div>
+                                        <div style="flex:1"><a href="http://127.0.0.1:8000/my_orders/5/" class="btn btn-success">check details</a></div>
+                                </div>
+                                
+
+
+                        </div>
+                </div>
+        </div>          
+
+
+
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./Tiffin Service Pool_files/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="./Tiffin Service Pool_files/popper.min.js.download" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./Tiffin Service Pool_files/bootstrap.min.js.download" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./Tiffin Service Pool_files/cart.js.download"></script>
+  
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

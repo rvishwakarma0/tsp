@@ -1,0 +1,127 @@
+{% extends 'TiffinServicePool/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-form-2{
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    color: #fff;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-2 .btnSubmit{
+    font-weight: 600;
+    color: #0062cc;
+    background-color: #fff;
+}
+.login-form-2 .ForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+</style>
+  <div class="container login-container">
+            <div class="row">
+                <div class="col-md-6 login-form-1">
+                    <h3>Login Here</h3>
+                    <form method="post" action="{% url 'login_register' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" placeholder="Your Email . . ." value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Your Password . . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btnSubmit" value="Login" />
+                        </div>
+
+                        {% if error_msg %}
+                        <div class="form-group">
+                            <h5 style="color:red">{{error_msg}}</h5>
+                        </div>
+                        {% endif %}
+                          <input type="hidden" id="formType" name="formType" value="login"> 
+                    </form>
+                        <a href="/reset_password/" class="ForgetPwd">Forget Password?</a>
+                </div>
+                <div class="col-md-6 login-form-2">
+                    <h3>Register Here</h3>
+                    <form method="post" action="{% url 'login_register' %}" oninput='repassword.setCustomValidity(repassword.value != password.value ? "Passwords do not match." : "")'>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Enter name. . .  " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Enter email. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Enter password. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="repassword" placeholder="Renter password. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="defaultShippingAddress" placeholder="Enter address. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="defaultShippingCity" placeholder="Enter city. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="defaultShippingState" placeholder="Enter state. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="defaultShippingZipCode" placeholder="Enter zip code. . . " value="" />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btnSubmit" value="Register" />
+                        </div>            
+                        {% if error_msg_reg %}
+                        <div class="form-group">
+                            <h5 style="color:black">{{error_msg_reg}}</h5>
+                        </div>
+                        {% endif %}
+                        <input type="hidden" id="formType" name="formType" value="register"> 
+
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock content %}

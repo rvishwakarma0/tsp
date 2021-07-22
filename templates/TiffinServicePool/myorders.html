@@ -1,0 +1,65 @@
+{% extends 'TiffinServicePool/main.html' %}
+{% load static %}
+{% block content %}
+        
+        <div class="row">
+                <div class="col-lg-12">
+
+                        <div class="box-element">
+
+                                <a class="btn btn-outline-dark" href="{% url 'TiffinServicePool' %}">&#x2190; Beat the hunger</a>
+                                <br>
+                                <br>
+                                <table class="table">
+                                        
+                                                <tr>
+                                                        <th><h5>No. Of Orders: <strong>{{no_of_orders}}</strong></h5></th>
+                                                        <th><h5>Total Amount Spent: <strong>₹{{total_amt_spent | floatformat:2}}</strong></h5></th>
+
+                                                </tr>
+                                        
+                                </table>
+
+
+                        </div>
+                        
+                        <br>
+
+                        <div class="box-element">
+                        
+                                <div class="cart-row">
+
+                                        <div style="flex:1"><strong>Order Number</strong></div>
+                                        <div style="flex:1"><strong>Transaction ID</strong></div>
+                                        <div style="flex:1"><strong>Amount</strong></div>
+                                        <div style="flex:1"><strong>Quantity</strong></div>
+                                        <div style="flex:1"><strong>Completed</strong></div>
+                                        <div style="flex:1"><strong>Delivered</strong></div>
+                                        <div style="flex:1"><strong>Cancelled</strong></div>
+                                        <div style="flex:1"><strong>Details</strong></div>
+                                </div>
+                                {% for order in orders %}
+                                <div class="cart-row">
+
+                                        <div style="flex:1">{{order.id}}</div>
+                                        <div style="flex:1">{{order.transaction_id}}</div>
+                                        <div style="flex:1">₹{{order.get_cart_total| floatformat:2}}</div>
+                                        <div style="flex:1">{{order.get_cart_items}}</div>
+                                        <div style="flex:1">{{order.complete}}</div>
+                                        <div style="flex:1">{{order.delivery}}</div>
+                                        <div style="flex:1">{{order.canceled}}</div>
+                                        <div style="flex:1"><a href="/my_orders/{{order.id}}/" class="btn btn-success">check details</a></div>
+                                </div>
+                                {% endfor %}
+
+
+                        </div>
+                </div>
+        </div>          
+
+
+
+{% endblock content %}
+
+
+

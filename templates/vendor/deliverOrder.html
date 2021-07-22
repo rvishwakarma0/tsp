@@ -1,0 +1,35 @@
+{% extends 'TiffinServicePool/main.html' %}
+{% load static %}
+{% block content %}
+
+
+      <div class="jumbotron">
+        <h1 class="display-4">Order Delivery</h1>
+        <hr class="my-4">
+
+        <div class="container">
+          {% if order.delivery == False %}
+            <div class="alert alert-warning" role="alert">
+              triggering delivery process...
+            </div>
+            <form method="post" class="justify-content-center">
+              {%csrf_token%}
+              <h3>Have you delivered order {{order.id}} ?</h3>
+              <button type="submit" class="btn btn-danger" name="choice" value="True">Yes</button>
+              <button type="submit" class="btn btn-danger" name="choice" value="False">No</button>
+            </form>
+          {% else %}
+            <div class="alert alert-danger" role="alert">
+              !! Order already delivered !!
+            </div>
+            <hr>
+            <a class="btn btn-outline-dark" href="/vendor/dashboard/{{vid}}">&#x2190; dashboard</a>
+          {%endif%}
+        </div>
+
+      </div>
+
+{% endblock content %}
+
+
+
